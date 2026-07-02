@@ -35,20 +35,18 @@ Design a Notes Application where users can create, read, update, and delete note
 
 ## 🧠 5. Assumptions
 
-- What you are assuming for simplicity ()
+- What you are assuming for simplicity
 - single region, small user base, no real-time sync
 
 ---
 
 ## 🏗️ 6. High-Level Architecture
 
-Add diagram here:
+- Version 01
+  ![Architecture](./V01/architecture.png)
 
-```
-User → Frontend → Backend → Database
-```
-
-![Architecture](./V01/architecture.png)
+- Version 02
+  ![Architecture](./V02/architecture.png)
 
 ---
 
