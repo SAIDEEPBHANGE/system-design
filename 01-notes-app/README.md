@@ -2,43 +2,41 @@
 
 ## 📌 1. Problem Statement
 
-Write what you are building in 1–2 lines.
-
-Example:
 Design a Notes Application where users can create, read, update, and delete notes.
 
 ---
 
 ## 👤 2. Users
 
-- Who will use this system?
-- Web users / Mobile users / Admin users
+- Who will use this system? - Web users
 
 ---
 
 ## 🎯 3. Functional Requirements
 
-- Requirement 1
-- Requirement 2
-- Requirement 3
-- Add all core features here
+- Creating notes
+- Updating notes
+- Read notes
+- Delete notes
+- A proper user authentication
+- Share the notes
 
 ---
 
 ## ⚙️ 4. Non-Functional Requirements
 
-- Scalability (how big it should grow)
-- Performance (how fast it should be)
-- Availability (uptime expectations)
-- Consistency requirements
-- Reliability
+- Scalability (At least can handle 1 million users)
+- Performance (At Notes should Open in three seconds)
+- Availability (Share note Updating simultaneously By Concept 2 or multiple users)
+- Consistency requirements (Notes should be Visible Within that users Authorization)
+- Reliability (Without network Or imposs Loss of network Notes will Store in local storage for sometimes While network comes back To store the Into the database)
 
 ---
 
 ## 🧠 5. Assumptions
 
-- What you are assuming for simplicity (VERY IMPORTANT)
-- Example: single region, small user base, no real-time sync
+- What you are assuming for simplicity ()
+- single region, small user base, no real-time sync
 
 ---
 
@@ -49,8 +47,6 @@ Add diagram here:
 ```
 User → Frontend → Backend → Database
 ```
-
-Or insert image:
 
 ![Architecture](./V01/architecture.png)
 
@@ -82,12 +78,13 @@ Handles async processing
 
 ## 🔌 8. API Design
 
-| Method | Endpoint | Description |
-| ------ | -------- | ----------- |
-| GET    | /api/... | Fetch data  |
-| POST   | /api/... | Create data |
-| PUT    | /api/... | Update data |
-| DELETE | /api/... | Delete data |
+| Method | Endpoint                            | Description |
+| ------ | ----------------------------------- | ----------- |
+| GET    | /api/UserName/Notes/get/id          | Fetch data  |
+| GET    | /api/UserName/Notes/get/id=?        | Fetch data  |
+| POST   | /api/UserName/Notes/add/...         | Create data |
+| PUT    | /api/UserName/Notes/update/id=?/... | Update data |
+| DELETE | /api/UserName/Notes/delete/id=?     | Delete data |
 
 ---
 
