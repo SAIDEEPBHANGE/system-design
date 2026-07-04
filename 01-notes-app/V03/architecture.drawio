@@ -1,0 +1,155 @@
+<mxfile host="app.diagrams.net" modified="2026-07-04T00:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram name="V03 - Corrected Architecture" id="v03-arch">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===================== CLIENT TIER ===================== -->
+        <mxCell id="tier_client" value="CLIENT TIER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="1320" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="client_spa" value="Browser / Mobile SPA&#10;- Local CRDT replica per note (offline source of truth)&#10;- Sync outbox queue (replays ops on reconnect)&#10;- Service worker cache for static assets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;align=left;spacingLeft=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="70" width="480" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== CDN ===================== -->
+        <mxCell id="tier_cdn" value="CDN" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="180" width="1320" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="cdn_box" value="CDN&#10;Static assets (JS/CSS) + media thumbnails" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="205" width="480" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== EDGE TIER ===================== -->
+        <mxCell id="tier_edge" value="EDGE TIER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="280" width="1320" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="lb" value="Load Balancer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="315" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="gateway" value="N x API Gateway&#10;(TLS term, authn check, rate limiting,&#10;WS routing hashed by noteId)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="305" width="300" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== APPLICATION TIER ===================== -->
+        <mxCell id="tier_app" value="APPLICATION TIER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="410" width="1320" height="260" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_user" value="UserService &amp; Auth&#10;(login, sessions, OAuth)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_notes" value="Notes Service&#10;(CRUD, ACL inline on doc,&#10;delegates live edits to Collab Engine)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="320" y="450" width="220" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_media" value="Media Service&#10;(signed upload/download URLs)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="580" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_search" value="Search Service&#10;(indexer, query API)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="820" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_reminder" value="Reminder Service&#10;(schedules, triggers push)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="450" width="200" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="svc_collab" value="Real-Time Collaboration Engine&#10;- Stateless WS pods&#10;- CRDT merge (Yjs or similar)&#10;- SOLE writer for note documents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=11;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="550" width="460" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== ASYNC / EVENT LAYER ===================== -->
+        <mxCell id="tier_async" value="ASYNC / EVENT LAYER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="690" width="1320" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="bus" value="Message Bus (Kafka / SQS+SNS)&#10;CDC stream, reminder due-events, activity/audit log" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="725" width="560" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== DATA TIER ===================== -->
+        <mxCell id="tier_data" value="DATA TIER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;fontStyle=1;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry x="40" y="820" width="1320" height="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data_redis" value="Redis&#10;- Active-note cache (write-through)&#10;- Pub/Sub backplane for WS fan-out&#10;- Session store" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="80" y="860" width="280" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data_primary" value="Primary Document Store&#10;(MongoDB / DynamoDB), sharded by userId&#10;Note doc: content, ownerId, collaborators[],&#10;labels[], color, pinned, archived, trashed,&#10;reminder ref, CRDT state" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="400" y="850" width="360" height="110" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data_object" value="Object Storage (S3 / GCS)&#10;Images, drawings, audio&#10;Served via CDN" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="800" y="860" width="240" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="data_search" value="Search Index&#10;(Elasticsearch / OpenSearch)&#10;Full-text + label + title search" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="860" width="240" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== EDGES ===================== -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="client_spa" target="cdn_box">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="HTTPS / WSS" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="client_spa" target="lb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="lb" target="gateway">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_notes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_media">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_reminder">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="WSS (live edits, presence)" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="gateway" target="svc_collab">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="delegates writes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;dashed=1;" edge="1" parent="1" source="svc_notes" target="svc_collab">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_collab" target="data_redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="sole writer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontStyle=1;" edge="1" parent="1" source="svc_collab" target="data_primary">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_media" target="data_object">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_notes" target="data_redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="data_primary" target="bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="CDC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="bus" target="data_search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_search" target="data_search">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="due-events" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_reminder" target="bus">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;" edge="1" parent="1" source="svc_user" target="data_redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
