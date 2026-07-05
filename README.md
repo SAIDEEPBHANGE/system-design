@@ -18,18 +18,18 @@ I'm learning **System Design from scratch** by designing real-world systems, doc
 
 # 📚 Learning Roadmap
 
-| # | Project | Difficulty | Status |
-|---|---------|:----------:|:------:|
-| 01 | Notes App | ⭐ | ⬜ |
-| 02 | URL Shortener | ⭐ | ⬜ |
-| 03 | To-Do Backend | ⭐ | ⬜ |
-| 04 | Authentication Service | ⭐⭐ | ⬜ |
-| 05 | Chat Application | ⭐⭐ | ⬜ |
-| 06 | File Storage System | ⭐⭐⭐ | ⬜ |
-| 07 | Notification Service | ⭐⭐⭐ | ⬜ |
-| 08 | Video Streaming Platform | ⭐⭐⭐⭐ | ⬜ |
-| 09 | Ride Sharing System | ⭐⭐⭐⭐ | ⬜ |
-| 10 | Social Network | ⭐⭐⭐⭐⭐ | ⬜ |
+| #   | Project                  | Difficulty | Status |
+| --- | ------------------------ | :--------: | :----: |
+| 01  | Notes App                |     ⭐     |   ⬜   |
+| 02  | URL Shortener            |     ⭐     |   ⬜   |
+| 03  | To-Do Backend            |     ⭐     |   ⬜   |
+| 04  | Authentication Service   |    ⭐⭐    |   ⬜   |
+| 05  | Chat Application         |    ⭐⭐    |   ⬜   |
+| 06  | File Storage System      |   ⭐⭐⭐   |   ⬜   |
+| 07  | Notification Service     |   ⭐⭐⭐   |   ⬜   |
+| 08  | Video Streaming Platform |  ⭐⭐⭐⭐  |   ⬜   |
+| 09  | Ride Sharing System      |  ⭐⭐⭐⭐  |   ⬜   |
+| 10  | Social Network           | ⭐⭐⭐⭐⭐ |   ⬜   |
 
 ---
 
@@ -119,6 +119,8 @@ Each project contains:
 This repository is a personal learning journey to understand how large-scale systems are designed. Every project starts with a simple architecture and is improved step by step as I learn new concepts.
 
 ---
+
+## [System Design Diagram Standards Are Used On Below File](/System-Design-Diagram-Standards.md)
 
 ## 📌 License
 
