@@ -20,7 +20,7 @@ I'm learning **System Design from scratch** by designing real-world systems, doc
 
 | #   | Project                  | Difficulty | Status |
 | --- | ------------------------ | :--------: | :----: |
-| 01  | Notes App                |     ⭐     |   ⬜   |
+| 01  | Notes App                |     ⭐     |   ✅   |
 | 02  | URL Shortener            |     ⭐     |   ⬜   |
 | 03  | To-Do Backend            |     ⭐     |   ⬜   |
 | 04  | Authentication Service   |    ⭐⭐    |   ⬜   |
@@ -75,7 +75,7 @@ Each project contains:
 
 # 📊 Progress
 
-- [ ] Notes App
+- [x] Notes App
 - [ ] URL Shortener
 - [ ] To-Do Backend
 - [ ] Authentication Service
