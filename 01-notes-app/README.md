@@ -51,6 +51,9 @@ Design a Notes Application where users can create, read, update, and delete note
 - Version 03
   ![Architecture](./V03/architecture.png)
 
+- Version 04
+  ![Architecture](./V04/architecture.png)
+
 ---
 
 ## 🧩 7. Components Breakdown
