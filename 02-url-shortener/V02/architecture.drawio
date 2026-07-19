@@ -1,0 +1,208 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="URL Shortener - Standards Compliant" id="url-shortener-v2">
+    <mxGraphModel dx="2289" dy="1260" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1750" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ===================== TITLE ===================== -->
+        <mxCell id="title" value="URL Shortener — System Architecture" style="text;html=1;fontSize=20;fontStyle=1;align=center;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="40" y="10" width="820" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== CLIENT TIER (Blue) ===================== -->
+        <mxCell id="grp_client" value="Client Tier" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#1a5276;fillColor=#eaf2fb;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="50" width="820" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="client_app" value="Browser / Mobile SPA Application" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="90" width="240" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- CDN - external, light blue, dashed border (third-party) -->
+        <mxCell id="cdn" value="CDN&#10;(CloudFront / Cloudflare)&#10;Static assets + thumbnails" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#d0e3f7;strokeColor=#6c8ebf;dashed=1;fontStyle=0;" vertex="1" parent="1">
+          <mxGeometry x="960" y="60" width="260" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== EDGE / GATEWAY TIER (Gray = LB/infra) ===================== -->
+        <mxCell id="grp_edge" value="Edge / Gateway Tier" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#4d4d4d;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="40" y="190" width="820" height="380" as="geometry" />
+        </mxCell>
+        <mxCell id="lb" value="Load Balancer" style="rhombus;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="225" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="api_gw" value="API Gateway (N instances)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="325" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="rate_limiter" value="Rate Limiter Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="395" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="ssl_term" value="SSL Terminator Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="465" width="400" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="router" value="Request Router Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="250" y="525" width="400" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== APPLICATION TIER (Green = Backend Services) ===================== -->
+        <mxCell id="grp_app" value="Application Tier" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#2d6a2d;fillColor=#eef7ee;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="40" y="610" width="820" height="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp_write" value="Write Service" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontStyle=1;fontColor=#2d6a2d;fillColor=none;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="645" width="380" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="rest_ctrl" value="REST Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="680" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="shortener_logic" value="URL Shortener Logic" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="750" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="kgs" value="Key Generation Service (KGS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="90" y="830" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="db_writer" value="DB Writer" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="260" y="830" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="grp_read" value="Read Service" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontStyle=1;fontColor=#2d6a2d;fillColor=none;strokeColor=#82b366;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="460" y="645" width="380" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="redirect_ctrl" value="Redirection Controller" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="490" y="680" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cache_client" value="Cache Client Component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="490" y="750" width="320" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="db_client" value="DB Client Component" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="490" y="830" width="320" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== ASYNC EVENT LAYER (Red = Message Queue) ===================== -->
+        <mxCell id="grp_async" value="Async Event Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#8f3a3a;fillColor=#fbecec;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1050" width="820" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="kafka" value="Event Producer (Kafka)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="1085" width="440" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== DATA LAYER (Orange = DB, Purple = Cache) ===================== -->
+        <mxCell id="grp_data" value="Data Layer" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#7a4a00;fillColor=#fff8ee;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1190" width="820" height="260" as="geometry" />
+        </mxCell>
+        <mxCell id="main_db" value="Main Database&#10;(NoSQL)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="150" y="1240" width="180" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="redis" value="Redis Cache" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="1260" width="180" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== LEGEND ===================== -->
+        <mxCell id="legend" value="Legend" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fillColor=#ffffff;strokeColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="900" y="220" width="340" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_client" value="Client / Frontend" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="255" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_cdn" value="CDN (external, dashed)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d0e3f7;strokeColor=#6c8ebf;dashed=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="285" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_lb" value="Load Balancer / Edge" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="315" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_backend" value="Backend Service" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="345" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_queue" value="Message Queue / Event" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="375" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_cache" value="Cache" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="405" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_db" value="Database" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="915" y="435" width="150" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_sync_line" value="" style="endArrow=block;html=1;strokeColor=#333333;" edge="1" parent="1">
+          <mxGeometry x="915" y="475" width="150" height="0" relative="1" as="geometry">
+            <mxPoint x="915" y="475" as="sourcePoint" />
+            <mxPoint x="1065" y="475" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_sync_lbl" value="Sync (HTTP/REST/gRPC)" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="915" y="480" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_async_line" value="" style="endArrow=block;html=1;dashed=1;strokeColor=#b85450;" edge="1" parent="1">
+          <mxGeometry x="915" y="510" width="150" height="0" relative="1" as="geometry">
+            <mxPoint x="915" y="510" as="sourcePoint" />
+            <mxPoint x="1065" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="leg_async_lbl" value="Async (Kafka event)" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;" vertex="1" parent="1">
+          <mxGeometry x="915" y="515" width="220" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_note" value="Rounded rect = Microservice&#10;Cylinder = Database/Cache&#10;Diamond = LB / Decision&#10;Cloud, dashed = External system" style="text;html=1;fontSize=11;align=left;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="915" y="545" width="310" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ===================== FLOW EDGES ===================== -->
+        <mxCell id="e1" value="1. Fetch static assets (HTTPS)" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="client_app" target="cdn">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="2. HTTPS request/response" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="client_app" target="lb">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="3." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="lb" target="api_gw">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="4." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="api_gw" target="rate_limiter">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="5." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="rate_limiter" target="ssl_term">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" value="6. HTTP" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="ssl_term" target="router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" value="7. Write path" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="router" target="rest_ctrl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="8. Read path" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="router" target="redirect_ctrl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="9." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="rest_ctrl" target="shortener_logic">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" value="10. Fetch key" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="shortener_logic" target="kgs">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" value="11." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="shortener_logic" target="db_writer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="12. Write" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="db_writer" target="main_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13" value="13. Publish event" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;strokeColor=#b85450;fontSize=10;fontColor=#b85450;" edge="1" parent="1" source="db_writer" target="kafka">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14" value="14. Invalidate/update cache" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;strokeColor=#b85450;fontSize=10;fontColor=#b85450;" edge="1" parent="1" source="kafka" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="15." style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="redirect_ctrl" target="cache_client">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16" value="16. Cache hit" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.25;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="cache_client" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17" value="17. Cache miss" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;exitX=0.75;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="cache_client" target="db_client">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e18" value="18. Read" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="db_client" target="main_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e19" value="19. Populate cache" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" edge="1" parent="1" source="db_client" target="redis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
