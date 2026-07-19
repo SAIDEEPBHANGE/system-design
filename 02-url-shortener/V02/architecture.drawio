@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="URL Shortener - Standards Compliant" id="url-shortener-v2">
-    <mxGraphModel dx="1212" dy="667" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1750" math="0" shadow="0">
+    <mxGraphModel dx="1717" dy="945" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1300" pageHeight="1750" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -35,16 +35,19 @@
           <mxGeometry height="40" width="400" x="250" y="525" as="geometry" />
         </mxCell>
         <mxCell id="grp_app" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#2d6a2d;fillColor=#eef7ee;strokeColor=#82b366;" value="Application Tier" vertex="1">
-          <mxGeometry height="420" width="820" x="40" y="610" as="geometry" />
+          <mxGeometry height="590" width="820" x="40" y="610" as="geometry" />
         </mxCell>
         <mxCell id="grp_write" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontStyle=1;fontColor=#2d6a2d;fillColor=none;strokeColor=#82b366;dashed=1;" value="Write Service" vertex="1">
-          <mxGeometry height="360" width="380" x="60" y="645" as="geometry" />
+          <mxGeometry height="515" width="380" x="60" y="645" as="geometry" />
         </mxCell>
         <mxCell id="rest_ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="REST Controller" vertex="1">
           <mxGeometry height="40" width="320" x="90" y="680" as="geometry" />
         </mxCell>
         <mxCell id="shortener_logic" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="URL Shortener Logic (Base62 Encoder)" vertex="1">
           <mxGeometry height="40" width="320" x="90" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-10" edge="1" parent="1" source="kgs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="8_fX3chz60F8Tn7oKFOt-8">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="kgs" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Key Generation Service (KGS)" vertex="1">
           <mxGeometry height="70" width="150" x="90" y="830" as="geometry" />
@@ -53,7 +56,7 @@
           <mxGeometry height="70" width="150" x="260" y="830" as="geometry" />
         </mxCell>
         <mxCell id="grp_read" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=center;fontStyle=1;fontColor=#2d6a2d;fillColor=none;strokeColor=#82b366;dashed=1;" value="Read Service" vertex="1">
-          <mxGeometry height="360" width="380" x="460" y="645" as="geometry" />
+          <mxGeometry height="515" width="380" x="460" y="645" as="geometry" />
         </mxCell>
         <mxCell id="redirect_ctrl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Redirection Controller" vertex="1">
           <mxGeometry height="40" width="320" x="490" y="680" as="geometry" />
@@ -65,19 +68,19 @@
           <mxGeometry height="70" width="320" x="490" y="830" as="geometry" />
         </mxCell>
         <mxCell id="grp_async" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#8f3a3a;fillColor=#fbecec;strokeColor=#b85450;" value="Async Event Layer" vertex="1">
-          <mxGeometry height="230" width="820" x="40" y="1050" as="geometry" />
+          <mxGeometry height="230" width="820" x="40" y="1240" as="geometry" />
         </mxCell>
         <mxCell id="kafka" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="Event Producer (Kafka)" vertex="1">
-          <mxGeometry height="50" width="440" x="230" y="1085" as="geometry" />
+          <mxGeometry height="50" width="440" x="230" y="1275" as="geometry" />
         </mxCell>
         <mxCell id="grp_data" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fontColor=#7a4a00;fillColor=#fff8ee;strokeColor=#d79b00;" value="Data Layer" vertex="1">
-          <mxGeometry height="260" width="820" x="30" y="1320" as="geometry" />
+          <mxGeometry height="260" width="820" x="30" y="1510" as="geometry" />
         </mxCell>
         <mxCell id="main_db" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#ffe6cc;strokeColor=#d79b00;fontStyle=1;" value="Main Database&#xa;(NoSQL)" vertex="1">
-          <mxGeometry height="170" width="180" x="140" y="1370" as="geometry" />
+          <mxGeometry height="170" width="180" x="140" y="1560" as="geometry" />
         </mxCell>
         <mxCell id="redis" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#e1d5e7;strokeColor=#9673a6;fontStyle=1;" value="Redis Cache" vertex="1">
-          <mxGeometry height="130" width="180" x="550" y="1390" as="geometry" />
+          <mxGeometry height="130" width="180" x="550" y="1580" as="geometry" />
         </mxCell>
         <mxCell id="legend" parent="1" style="rounded=1;whiteSpace=wrap;html=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=6;fontStyle=1;fillColor=#ffffff;strokeColor=#999999;" value="Legend" vertex="1">
           <mxGeometry height="420" width="340" x="900" y="220" as="geometry" />
@@ -160,8 +163,8 @@
         <mxCell id="e12" edge="1" parent="1" source="db_writer" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" target="main_db" value="12. Write">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="310" y="1060.06" />
-              <mxPoint x="210" y="1060.06" />
+              <mxPoint x="310" y="1110" />
+              <mxPoint x="210" y="1110" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -190,8 +193,8 @@
         <mxCell id="e18" edge="1" parent="1" source="db_client" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeColor=#333333;fontSize=10;" target="main_db" value="18. Read">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="650" y="950" />
-              <mxPoint x="190" y="950" />
+              <mxPoint x="650" y="1130" />
+              <mxPoint x="190" y="1130" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -203,16 +206,38 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="8_fX3chz60F8Tn7oKFOt-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=1;" value="Kafka Consumer" vertex="1">
-          <mxGeometry height="50" width="320" x="290" y="1210" as="geometry" />
+          <mxGeometry height="50" width="320" x="290" y="1400" as="geometry" />
         </mxCell>
         <mxCell id="8_fX3chz60F8Tn7oKFOt-3" edge="1" parent="1" source="8_fX3chz60F8Tn7oKFOt-1" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;dashed=1;strokeColor=#b85450;fontSize=10;fontColor=#b85450;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryPerimeter=0;" target="redis" value="14. Invalidate/update cache">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="450" y="1300" />
-              <mxPoint x="640" y="1300" />
+              <mxPoint x="450" y="1490" />
+              <mxPoint x="640" y="1490" />
             </Array>
-            <mxPoint x="440" y="1160" as="sourcePoint" />
-            <mxPoint x="440" y="1235" as="targetPoint" />
+            <mxPoint x="440" y="1350" as="sourcePoint" />
+            <mxPoint x="440" y="1425" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Key Range Buffer&amp;nbsp;&lt;div&gt;(In-Memory)&lt;/div&gt;" vertex="1">
+          <mxGeometry height="70" width="150" x="90" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-11" edge="1" parent="1" source="8_fX3chz60F8Tn7oKFOt-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="8_fX3chz60F8Tn7oKFOt-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-13" connectable="0" parent="8_fX3chz60F8Tn7oKFOt-11" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="20" vertex="1">
+          <mxGeometry relative="1" x="0.2267" y="3" as="geometry">
+            <mxPoint x="3" y="8" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Range Replenisher (Background Worker)" vertex="1">
+          <mxGeometry height="70" width="150" x="90" y="1030" as="geometry" />
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-12" edge="1" parent="1" source="8_fX3chz60F8Tn7oKFOt-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.145;entryY=0;entryDx=0;entryDy=4.35;entryPerimeter=0;" target="main_db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8_fX3chz60F8Tn7oKFOt-14" connectable="0" parent="8_fX3chz60F8Tn7oKFOt-12" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="21. After 80% &lt;br&gt;Next Range &lt;br&gt;from Database&amp;nbsp;" vertex="1">
+          <mxGeometry relative="1" x="-0.0108" as="geometry">
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
       </root>
