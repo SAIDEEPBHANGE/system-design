@@ -125,3 +125,10 @@ This repository is a personal learning journey to understand how large-scale sys
 ## 📌 License
 
 This project is licensed under the MIT License.
+
+## System Design Mind Map
+
+<p align="center">
+  <img src="./System Design Mind Map.png" alt="System Design Mind Map">
+  <br/>
+</p>
