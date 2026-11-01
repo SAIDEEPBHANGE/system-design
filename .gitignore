@@ -1,3 +1,11 @@
+# Ignore all PDF files
 *.pdf
+
+# Ignore all text files
 *.txt
+
+# Ignore all ZIP files
 *.zip
+
+# Ignore contents of Github-Primer
+Github-Primer/*
