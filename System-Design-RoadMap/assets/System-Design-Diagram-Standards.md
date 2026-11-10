@@ -1,7 +1,6 @@
 # 🎨 System Design Diagram Standards
 
 This document defines the conventions used across all system design diagrams in this repository.
-
 **Goals**
 
 - Maintain consistency across diagrams.
@@ -42,8 +41,7 @@ Service A ─────────▶ Service B
 - REST
 - gRPC
 - RPC
-
-Use **Solid Arrow**
+  Use **Solid Arrow**
 
 ---
 
@@ -55,7 +53,6 @@ Queue - - - - ▶ Consumer
 ```
 
 Use **Dashed Arrow**
-
 Examples:
 
 - Kafka
@@ -85,9 +82,7 @@ Examples:
 Service ──🔴──▶ Error Handler
 ```
 
-Use Red arrows only when explaining failure paths.
-
----
+## Use Red arrows only when explaining failure paths.
 
 ## Replication / Backup
 
@@ -95,9 +90,7 @@ Use Red arrows only when explaining failure paths.
 Primary DB =====▶ Replica DB
 ```
 
-Use double/thick arrows.
-
----
+## Use double/thick arrows.
 
 # Shapes
 
@@ -122,11 +115,8 @@ Internal components.
 ## Dashed Border
 
 External systems.
-
 Third-party APIs.
-
 Unknown systems.
-
 Partner services.
 
 ---
@@ -134,7 +124,6 @@ Partner services.
 # Grouping
 
 Always group components using containers.
-
 Examples
 
 ```
@@ -163,13 +152,9 @@ Examples of groups
 # Data Flow Rules
 
 Always draw flow from
-
 Left ➜ Right
-
 or
-
 Top ➜ Bottom
-
 Avoid arrows pointing in random directions.
 
 ---
@@ -177,7 +162,6 @@ Avoid arrows pointing in random directions.
 # Naming Rules
 
 Use descriptive names.
-
 ✅ Good
 
 ```
@@ -204,15 +188,10 @@ Server
 # Layout Rules
 
 Keep users on the left.
-
 Frontend next.
-
 Backend next.
-
 Data layer on the right.
-
 External systems outside the system boundary.
-
 Example
 
 ```
@@ -232,23 +211,14 @@ Database
 # Diagram Legend
 
 Every diagram should include a legend.
-
 Example
-
 Blue = Frontend
-
 Green = Backend
-
 Orange = Database
-
 Purple = Cache
-
 Gray = External Service
-
 Solid Arrow = Sync Request
-
 Dashed Arrow = Async Request
-
 Red Arrow = Error Flow
 
 ---
@@ -296,9 +266,7 @@ Before committing a diagram, verify:
 # Version
 
 Current Version: **1.0**
-
 Last Updated (YYYY-MM-DD): 2026-07-05
-
 Maintainer: Saideep Arvind Bhange
 
 ---

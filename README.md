@@ -1,9 +1,7 @@
 # System Design
 
 This repository documents my journey of learning **System Design through hands-on projects**.
-
 My goal is not just to understand system design concepts theoretically, but to explore how they work in real-world applications by designing and building small systems from scratch.
-
 Each project focuses on specific system design concepts, architectural decisions, and engineering challenges. Through these implementations, I aim to understand how different components interact, why certain design choices are made, and how systems can be designed to handle scalability, reliability, performance, and maintainability.
 
 ## Learning Projects
@@ -37,7 +35,5 @@ Each project explores a different system and introduces new concepts as I progre
 - **Think in systems:** Understand how individual components work together to form a complete system.
 - **Design for scale:** Gradually explore scalability, performance, availability, and reliability.
 - **Document the journey:** Record architectural decisions, challenges, and lessons learned along the way.
-
-> The goal is not just to build these applications, but to understand the engineering decisions behind them.
-
-This is an ongoing learning journey, and the projects will evolve as my understanding of system design grows.
+  > The goal is not just to build these applications, but to understand the engineering decisions behind them.
+  > This is an ongoing learning journey, and the projects will evolve as my understanding of system design grows.
